@@ -13,7 +13,8 @@ void setup()
 {
 Serial.begin(9600);
 lcd.begin(16, 2);             // set up the LCD's number of columns and rows:
-lcd.print("hello, world!");   // Print a message to the LCD.
+lcd.print("  SW 00_00_b00  ");   // Print a message to the LCD.
+delay(5000);
 }
 
 void loop()

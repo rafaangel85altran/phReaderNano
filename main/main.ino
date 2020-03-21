@@ -13,6 +13,9 @@ void setup()
 {
 Serial.begin(9600);
 lcd.begin(16, 2);             // set up the LCD's number of columns and rows:
+lcd.setCursor(0, 0);
+lcd.print("   pH  Reader   ");
+lcd.setCursor(0, 1);
 lcd.print("  SW 00_00_b00  ");   // Print a message to the LCD.
 delay(5000);
 }
@@ -21,15 +24,12 @@ void loop()
 {
   Po = (1023 - analogRead(pHpin)) / 73.07; // Read and reverse the analogue input value from the pH sensor then scale 0-14.
   Serial.println(Po, 2);// Print the result in the serial monitor.
-  lcd.setCursor(0, 0);
-  lcd.print("PH = ");
-  lcd.setCursor(5, 0);
-  lcd.print(Po,2);
-  lcd.setCursor(9, 0);
-  lcd.print("       ");
   lcd.setCursor(0, 1);
-  lcd.print("                ");
-  
+  lcd.print("PH = ");
+  lcd.setCursor(5, 1);
+  lcd.print(Po,2);
+  lcd.setCursor(9, 1);
+  lcd.print("       ");
   delay(1000);// Take 1 reading per second.
   
 }
